@@ -1,0 +1,11 @@
+
+
+
+
+.button{
+    -fx-background-color: #e84136;
+}
+
+.button:hover{
+    -fx-text-fill: whitesmoke;
+}
