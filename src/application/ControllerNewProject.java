@@ -1,14 +1,22 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-
 public class ControllerNewProject {
+
+
+    ConnectionClass obj = new ConnectionClass();
+    ObservableList<String> listCategory = FXCollections.observableArrayList(
+            obj.selectFromDB("SELECT DISTINCT category.name FROM category"));
+
+    @FXML
+    private ComboBox comboBoxCategoryInNewProject;
+
 
     @FXML
     private Button ButtonAdd;
@@ -17,10 +25,19 @@ public class ControllerNewProject {
     private Button ButtonCancel;
 
     @FXML
+    private ColorPicker colorPicker;
+
+    @FXML
     private TextField LabelDescription;
 
     @FXML
     private TextField LabelName;
+
+    @FXML
+        public void initialize(){
+            comboBoxCategoryInNewProject.setItems(listCategory);
+            comboBoxCategoryInNewProject.setValue("Java");
+    }
 
     @FXML
     void handleAdd(ActionEvent event) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <Button fx:id="ButtonNewCategory" layoutX="85.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="80.0" stylesheets="@calcCSS.css" text="Category">
+      <Button fx:id="ButtonNewCategory" layoutX="85.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleButtonNewCategory" prefHeight="25.0" prefWidth="80.0" stylesheets="@css/calcCSS.css" text="Category">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -20,24 +20,22 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonNewProject" layoutX="174.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="80.0" stylesheets="@calcCSS.css" text="Project">
+      <Button fx:id="ButtonNewProject" layoutX="174.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleButtonNewProject" prefHeight="25.0" prefWidth="80.0" stylesheets="@css/calcCSS.css" text="Project">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="ChoiceBoxCategory" layoutX="73.0" layoutY="109.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="ChoiceBoxProject" layoutX="73.0" layoutY="165.0" prefWidth="150.0" />
-      <Button fx:id="ButtonStart" layoutX="270.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="80.0" stylesheets="@calcCSS.css" text="Start">
+      <Button fx:id="ButtonStart" layoutX="270.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonStart" prefHeight="40.0" prefWidth="80.0" stylesheets="@css/calcCSS.css" text="Start">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="ButtonPause" layoutX="362.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="80.0" stylesheets="@calcCSS.css" text="Pause">
+      <Button fx:id="ButtonPause" layoutX="362.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonPause" prefHeight="40.0" prefWidth="80.0" stylesheets="@css/calcCSS.css" text="Pause">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="ButtonStop" layoutX="458.0" layoutY="145.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="80.0" stylesheets="@calcCSS.css" text="Stop">
+      <Button fx:id="ButtonStop" layoutX="458.0" layoutY="145.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleButtonStop" prefHeight="40.0" prefWidth="80.0" stylesheets="@css/calcCSS.css" text="Stop">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -56,5 +54,7 @@
             <TableColumn prefWidth="111.0" text="Time" />
         </columns>
       </TableView>
+      <ComboBox fx:id="ComboBoxCategory" layoutX="58.0" layoutY="116.0" prefWidth="150.0" />
+      <ComboBox fx:id="ComboBoxProject" layoutX="58.0" layoutY="153.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
