@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.Time.Manager.controllers.TopMenuButtonsController">
+   <children>
+      <ToggleButton mnemonicParsing="false" onAction="#openTimer" prefHeight="80.0" prefWidth="150.0" text="%timerButton">
+         <toggleGroup>
+            <ToggleGroup fx:id="ToggleButtons" />
+         </toggleGroup>
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/timer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton mnemonicParsing="false" onAction="#openPomodoro" prefHeight="80.0" prefWidth="150.0" text="%pomodoroButton" toggleGroup="$ToggleButtons">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/pomodoro.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+      <ToggleButton mnemonicParsing="false" onAction="#openActivity" prefHeight="80.0" prefWidth="150.0" text="%activityButton" toggleGroup="$ToggleButtons">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/activity.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+      <ToggleButton mnemonicParsing="false" onAction="#openStatistics" prefHeight="80.0" prefWidth="150.0" text="%statisticButton" toggleGroup="$ToggleButtons">
+         <graphic>
+            <ImageView fitHeight="59.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/stat.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+      <ToggleButton mnemonicParsing="false" onAction="#openCategories" prefHeight="80.0" prefWidth="150.0" text="%categoriesButton" toggleGroup="$ToggleButtons">
+         <graphic>
+            <ImageView fitHeight="73.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/Category.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+      <ToggleButton mnemonicParsing="false" onAction="#openProjects" prefHeight="80.0" prefWidth="150.0" text="%projectsButton" toggleGroup="$ToggleButtons">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/projects.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>
