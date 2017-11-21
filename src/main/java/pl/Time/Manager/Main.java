@@ -21,6 +21,7 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         // Locale.setDefault(new Locale("en"));   //pl
+        // do Pane podczepiamy borderPane i działą bo Pane jest nadklasą BorderPane
         Pane borderPane = FxmlUtils.fxmlloader(BORDER_PANE_MAIN_FXML);
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);

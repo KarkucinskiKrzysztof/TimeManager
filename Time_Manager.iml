@@ -11,5 +11,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.j256.ormlite:ormlite-jdbc:5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.j256.ormlite:ormlite-core:5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.21.0" level="project" />
   </component>
 </module>

@@ -11,6 +11,7 @@ import javafx.scene.control.CheckMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pl.Time.Manager.utils.DialogsUtils;
+import pl.Time.Manager.utils.FxmlUtils;
 
 
 import java.io.IOException;
@@ -33,17 +34,9 @@ public class MainController {
         topMenuButtonsController.setMainController(this);
 
     }
+
     public void setCenter (String fmlxPath){
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fmlxPath));
-        ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
-        loader.setResources(bundle);
-        Parent parent = null;          // wszystkie nasz klasy dziedzicza po parent
-        try {
-            parent = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        borderPane.setCenter(parent);
+        borderPane.setCenter(FxmlUtils.fxmlloader(fmlxPath));
     }
 
     public void info() {
