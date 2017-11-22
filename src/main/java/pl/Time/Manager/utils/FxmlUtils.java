@@ -14,6 +14,7 @@ public class FxmlUtils {
             return loader.load();
         } catch (Exception e) {
             DialogsUtils.errorDialog(e.getMessage());
+            e.printStackTrace();
         }
         return null;
     }
