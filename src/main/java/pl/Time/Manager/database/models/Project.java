@@ -5,14 +5,10 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
-/**
- * Created by ZacznijProgramowac.
- * https://www.youtube.com/zacznijprogramowac
- * http://zacznijprogramowac.net/
- */
-@DatabaseTable(tableName = "AUTHORS")
-public class Author implements BaseModel{
-    public Author() {
+
+@DatabaseTable(tableName = "PROJECTS")
+public class Project implements BaseModel{
+    public Project() {
     }
 
     @DatabaseField(generatedId = true)
@@ -21,8 +17,12 @@ public class Author implements BaseModel{
     @DatabaseField(columnName = "NAME", canBeNull = false)
     private String name;
 
-    @DatabaseField(columnName = "SURNAME", canBeNull = false)
-    private String surname;
+    @DatabaseField(columnName = "DESCRIPTION", canBeNull = false)
+    private String description;
+
+
+    @DatabaseField(columnName = "COLOR", canBeNull = false)
+    private String color;
 
     @ForeignCollectionField(eager = true)
     private ForeignCollection<Activity> activities;
@@ -35,21 +35,28 @@ public class Author implements BaseModel{
         this.id = id;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }    public String getColor() {
+        return color;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public ForeignCollection<Activity> getActivities() {
         return activities;

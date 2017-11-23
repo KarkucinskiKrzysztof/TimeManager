@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import pl.Time.Manager.database.dao.CategoryDao;
 import pl.Time.Manager.database.dbuitls.DbManager;
 import pl.Time.Manager.database.models.Category;
+import pl.Time.Manager.utils.exceptions.ApplicationException;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CategoryModel {
     private ObjectProperty<CategoryFx> category = new SimpleObjectProperty<>();
 
 
-    public void init() {
+    public void init() throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         List<Category> categories = categoryDao.queryForAll(Category.class);
         this.categoryList.clear();
@@ -30,18 +31,28 @@ public class CategoryModel {
         DbManager.closeConnectionSource();
     }
 
-    public void deleteCategoryById() {
+    public void deleteCategoryById() throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         categoryDao.deleteById(Category.class, category.getValue().getId());
         DbManager.closeConnectionSource();
         init();
     }
 
-    public void saveCategoryInDataBase(String name) {
+    public void saveCategoryInDataBase(String name,String desc, String color) throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         Category category = new Category();
         category.setName(name);
+        category.setDescription(desc);
+        category.setColor(color);
         categoryDao.creatOrUpdate(category);
+        DbManager.closeConnectionSource();
+        init();
+    }
+    public void updateCategoryInDataBase() throws ApplicationException {
+        CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
+        Category tempCategory = categoryDao.findById(Category.class, getCategory().getId());
+        tempCategory.setName(getCategory().getName());
+        categoryDao.creatOrUpdate(tempCategory);
         DbManager.closeConnectionSource();
         init();
     }
@@ -54,7 +65,7 @@ public class CategoryModel {
         this.categoryList = categoryList;
     }
 
-    public CategoryFx getCategory() {
+    public  CategoryFx getCategory() {
         return category.get();
     }
 

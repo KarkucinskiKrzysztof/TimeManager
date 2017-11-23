@@ -5,42 +5,28 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
 
-/**
- * Created by ZacznijProgramowac.
- * https://www.youtube.com/zacznijprogramowac
- * http://zacznijprogramowac.net/
- */
-@DatabaseTable(tableName = "BOOKS")
-public class Book implements BaseModel{
+@DatabaseTable(tableName = "ACTIVITY")
+public class Activity implements BaseModel{
 
-    public static final String AUTHOR_ID = "AUTHOR_ID";
+    public static final String PROJECT_ID = "PROJECT_ID";
     public static final String CATEGORY_ID = "CATEGORY_ID";
 
-    public Book() {
+    public Activity() {
     }
 
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField(columnName = AUTHOR_ID, foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true, canBeNull = false)
-    private Author author;
+    @DatabaseField(columnName = PROJECT_ID, foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true, canBeNull = false)
+    private Project project;
     @DatabaseField(columnName = CATEGORY_ID, foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true, canBeNull = false)
     private Category category;
-
-    @DatabaseField(columnName = "TITLE", canBeNull = false)
-    private String title;
 
     @DatabaseField(columnName = "DESCRIPTION")
     private String description;
 
-    @DatabaseField(columnName = "RELEASE_DATE")
-    private Date releaseDate;
-
-    @DatabaseField(columnName = "ISBN")
-    private String isbn;
-
-    @DatabaseField(columnName = "RATING", width = 1)
-    private int rating;
+    @DatabaseField(columnName = "DURATION")
+    private int duration;
 
     @DatabaseField(columnName = "ADDED_DATE")
     private Date addedDate;
@@ -53,12 +39,12 @@ public class Book implements BaseModel{
         this.id = id;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Project getProject() {
+        return project;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public Category getCategory() {
@@ -68,39 +54,6 @@ public class Book implements BaseModel{
     public void setCategory(Category category) {
         this.category = category;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
     public Date getAddedDate() {
         return addedDate;
     }
@@ -113,7 +66,60 @@ public class Book implements BaseModel{
         return description;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 }
+
+//    @DatabaseField(columnName = "NAME", canBeNull = false)
+//    private String name;
+
+//    @DatabaseField(columnName = "ADD_DATE")
+//    private Date addDate;
+
+//    @DatabaseField(columnName = "ISBN")
+//    private String isbn;
+
+//    @DatabaseField(columnName = "RATING", width = 1)
+//    private int rating;
+//    public String getDescription() {
+//        return name;
+//    }
+//
+//    public void setDescription(String name) {
+//        this.name = name;
+//    }
+
+//    public Date getAddDate() {
+//        return addDate;
+//    }
+//
+//    public void setAddDate(Date addDate) {
+//        this.addDate = addDate;
+//    }
+
+//    public String getIsbn() {
+//        return isbn;
+//    }
+//
+//    public void setIsbn(String isbn) {
+//        this.isbn = isbn;
+//    }
+
+//    public int getRating() {
+//        return rating;
+//    }
+//
+//    public void setRating(int rating) {
+//        this.rating = rating;
+//    }
+
+

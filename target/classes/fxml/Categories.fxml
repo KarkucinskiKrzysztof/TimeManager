@@ -32,7 +32,7 @@
             <Label text="%descriptionLabel" GridPane.rowIndex="1" />
             <TextField fx:id="categoryTextField" GridPane.columnIndex="1" />
             <TextField fx:id="descriptionTextField" maxWidth="208.0" minWidth="0.0" prefHeight="25.0" prefWidth="17.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ColorPicker prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ColorPicker fx:id="categoryColorPicker" onAction="#categoryColorPickerButton" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -54,6 +54,11 @@
                </GridPane.margin>
             </Button>
             <ComboBox fx:id="categoryComboBox" onAction="#onActionComboBox" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="editCategoryButton" mnemonicParsing="false" onAction="#onActionEditCategoryButton" prefWidth="60.0" text="%editButton" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="120.0" />
+               </GridPane.margin>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets />

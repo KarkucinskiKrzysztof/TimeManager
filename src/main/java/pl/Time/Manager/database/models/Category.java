@@ -14,11 +14,17 @@ public class Category implements BaseModel {
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField(columnName = "NAME", canBeNull = false, unique = true)
+    @DatabaseField(columnName = "NAME" , canBeNull = false ,unique = true)
     private String name;
 
-    @ForeignCollectionField(columnName = "BOOK_ID")
-    private ForeignCollection<Book> books;
+    @DatabaseField(columnName = "DESCRIPTION")
+    private String description;
+
+    @ForeignCollectionField(columnName = "ACTIVITY_ID")
+    private ForeignCollection<Activity> activities;
+
+    @DatabaseField(columnName = "COLOR")
+    private String color;
 
     public int getId() {
         return id;
@@ -36,11 +42,25 @@ public class Category implements BaseModel {
         this.name = name;
     }
 
-    public ForeignCollection<Book> getBooks() {
-        return books;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBooks(ForeignCollection<Book> books) {
-        this.books = books;
+    public String getColor() { return color; }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ForeignCollection<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(ForeignCollection<Activity> activities) {
+        this.activities = activities;
     }
 }

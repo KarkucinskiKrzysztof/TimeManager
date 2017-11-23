@@ -2,8 +2,8 @@ package pl.Time.Manager.database.dao;
 
 import com.j256.ormlite.support.ConnectionSource;
 
-public class AuthorDao extends CommonDao {
-    public AuthorDao(ConnectionSource connectionSource) {
+public class ProjectDao extends CommonDao {
+    public ProjectDao(ConnectionSource connectionSource) {
         super(connectionSource);
     }
 }

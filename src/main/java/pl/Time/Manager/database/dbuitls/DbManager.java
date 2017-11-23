@@ -4,9 +4,11 @@ import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import pl.Time.Manager.database.models.Author;
-import pl.Time.Manager.database.models.Book;
+import pl.Time.Manager.database.models.Project;
+import pl.Time.Manager.database.models.Activity;
 import pl.Time.Manager.database.models.Category;
+import pl.Time.Manager.utils.FxmlUtils;
+import pl.Time.Manager.utils.exceptions.ApplicationException;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,12 +26,12 @@ public class DbManager {
 
     public static void initDatabase(){
         createConnectionSource();
-        //dropTable(); //zakomentuj, żeby nie kasować za każym razem tabel w bazie
+        dropTable(); //zakomentuj, żeby nie kasować za każym razem tabel w bazie
         createTable();
         closeConnectionSource();
     }
 
-    private static void createConnectionSource(){
+    private static void createConnectionSource() {
         try {
             connectionSource = new JdbcConnectionSource(JDBC_DRIVER_HD,USER, PASS);
         } catch (SQLException e) {
@@ -56,8 +58,8 @@ public class DbManager {
 
     private static void createTable(){
         try {
-            TableUtils.createTableIfNotExists(connectionSource, Author.class);
-            TableUtils.createTableIfNotExists(connectionSource, Book.class);
+            TableUtils.createTableIfNotExists(connectionSource, Project.class);
+            TableUtils.createTableIfNotExists(connectionSource, Activity.class);
             TableUtils.createTableIfNotExists(connectionSource, Category.class);
         } catch (SQLException e) {
             LOGGER.warn(e.getMessage());
@@ -66,8 +68,8 @@ public class DbManager {
 
     private  static  void  dropTable(){
         try {
-            TableUtils.dropTable(connectionSource, Author.class, true);
-            TableUtils.dropTable(connectionSource, Book.class, true);
+            TableUtils.dropTable(connectionSource, Project.class, true);
+            TableUtils.dropTable(connectionSource, Activity.class, true);
             TableUtils.dropTable(connectionSource, Category.class, true);
         } catch (SQLException e) {
             LOGGER.warn(e.getMessage());

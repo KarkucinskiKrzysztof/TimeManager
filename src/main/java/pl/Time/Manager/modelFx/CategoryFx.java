@@ -9,6 +9,7 @@ public class CategoryFx {
 
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
+    private StringProperty color = new SimpleStringProperty();
 
     public int getId() {
         return id.get();
@@ -32,6 +33,18 @@ public class CategoryFx {
 
     public void setName(String name) {
         this.name.set(name);
+    }
+
+    public String getColor() {
+        return color.get();
+    }
+
+    public StringProperty colorProperty() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color.set(color);
     }
 
     @Override
