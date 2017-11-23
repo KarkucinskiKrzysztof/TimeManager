@@ -25,7 +25,7 @@ public class Author implements BaseModel{
     private String surname;
 
     @ForeignCollectionField(eager = true)
-    private ForeignCollection<Book> books;
+    private ForeignCollection<Activity> activities;
 
     public int getId() {
         return id;
@@ -51,11 +51,11 @@ public class Author implements BaseModel{
         this.surname = surname;
     }
 
-    public ForeignCollection<Book> getBooks() {
-        return books;
+    public ForeignCollection<Activity> getActivities() {
+        return activities;
     }
 
-    public void setBooks(ForeignCollection<Book> books) {
-        this.books = books;
+    public void setActivities(ForeignCollection<Activity> activities) {
+        this.activities = activities;
     }
 }
