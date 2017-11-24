@@ -7,19 +7,21 @@ import com.j256.ormlite.table.DatabaseTable;
 
 
 @DatabaseTable(tableName = "PROJECTS")
-public class Project implements BaseModel{
+public class Project implements BaseModel {
     public Project() {
     }
 
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField(columnName = "NAME", canBeNull = false)
+    @DatabaseField(columnName = "NAME", canBeNull = false, unique = true)
     private String name;
 
     @DatabaseField(columnName = "DESCRIPTION", canBeNull = false)
     private String description;
 
+    @DatabaseField(columnName = "CATEGORY", canBeNull = false)
+    private String category;
 
     @DatabaseField(columnName = "COLOR", canBeNull = false)
     private String color;
@@ -49,7 +51,9 @@ public class Project implements BaseModel{
 
     public void setName(String name) {
         this.name = name;
-    }    public String getColor() {
+    }
+
+    public String getColor() {
         return color;
     }
 
@@ -64,5 +68,13 @@ public class Project implements BaseModel{
 
     public void setActivities(ForeignCollection<Activity> activities) {
         this.activities = activities;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

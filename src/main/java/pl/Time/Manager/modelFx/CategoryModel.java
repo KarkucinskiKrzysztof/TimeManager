@@ -1,6 +1,5 @@
 package pl.Time.Manager.modelFx;
 
-import com.j256.ormlite.dao.DaoManager;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -29,8 +28,9 @@ public class CategoryModel {
 
     private void initCategoryList(List<Category> categories) {
         this.categoryList.clear();
-        categories.forEach(c -> { CategoryFx categoryFx = ConverterCategory.categoryToCategoryFx(c);
-        this.categoryList.add(categoryFx);
+        categories.forEach(c -> {
+            CategoryFx categoryFx = ConverterCategory.categoryToCategoryFx(c);
+            this.categoryList.add(categoryFx);
         });
     }
 
@@ -41,7 +41,7 @@ public class CategoryModel {
         init();
     }
 
-    public void saveCategoryInDataBase(String name,String desc, String color) throws ApplicationException {
+    public void saveCategoryInDataBase(String name, String desc, String color) throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         Category category = new Category();
         category.setName(name);
@@ -51,6 +51,7 @@ public class CategoryModel {
         DbManager.closeConnectionSource();
         init();
     }
+
     public void updateCategoryInDataBase() throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         Category tempCategory = categoryDao.findById(Category.class, getCategory().getId());
@@ -68,7 +69,7 @@ public class CategoryModel {
         this.categoryList = categoryList;
     }
 
-    public  CategoryFx getCategory() {
+    public CategoryFx getCategory() {
         return category.get();
     }
 

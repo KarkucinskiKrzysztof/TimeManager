@@ -5,10 +5,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class CategoryFx {
-
+public class ProjectFx {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
+    private StringProperty category = new SimpleStringProperty();
     private StringProperty description = new SimpleStringProperty();
     private StringProperty color = new SimpleStringProperty();
 
@@ -36,16 +36,16 @@ public class CategoryFx {
         this.name.set(name);
     }
 
-    public String getColor() {
-        return color.get();
+    public String getCategory() {
+        return category.get();
     }
 
-    public StringProperty colorProperty() {
-        return color;
+    public StringProperty categoryProperty() {
+        return category;
     }
 
-    public void setColor(String color) {
-        this.color.set(color);
+    public void setCategory(String category) {
+        this.category.set(category);
     }
 
     public String getDescription() {
@@ -60,8 +60,21 @@ public class CategoryFx {
         this.description.set(description);
     }
 
+    public String getColor() {
+        return color.get();
+    }
+
+    public StringProperty colorProperty() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color.set(color);
+    }
+
     @Override
     public String toString() {
         return name.getValue();
     }
+
 }

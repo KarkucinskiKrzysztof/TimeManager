@@ -1,7 +1,7 @@
 package pl.Time.Manager.controllers;
 
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -26,13 +26,11 @@ public class CategoryController {
     private TextField categoryTextField;
     @FXML
     private TextField descriptionTextField;
-
-
-
     @FXML
     private ColorPicker categoryColorPicker;
     @FXML
     private ComboBox<CategoryFx> categoryComboBox;
+
     private CategoryModel categoryModel;
 
     @FXML
@@ -48,15 +46,14 @@ public class CategoryController {
     }
 
     private void initBindings() {
-        this.addCategoryButton.disableProperty().bind(categoryTextField.textProperty().isEmpty());
+        this.addCategoryButton.disableProperty().bind(categoryTextField.textProperty().isEmpty().or(descriptionTextField.textProperty().isEmpty()));
         this.deleteCategoryButton.disableProperty().bind(this.categoryModel.categoryProperty().isNull());  // aktywacja przycisku delete dopiero po wybraniu comboBoxa
         this.editCategoryButton.disableProperty().bind(this.categoryModel.categoryProperty().isNull());        // aktywacja przycisku edit dopiero po wybraniu comboBoxa
     }
 
-
     public void addCategoryOnAction() {
         try {
-            categoryModel.saveCategoryInDataBase(categoryTextField.getText(),descriptionTextField.getText(),categoryColorPicker.getValue().toString());
+            categoryModel.saveCategoryInDataBase(categoryTextField.getText(), descriptionTextField.getText(), categoryColorPicker.getValue().toString());
         } catch (ApplicationException e) {
             DialogsUtils.errorDialog(e.getMessage());
         }
@@ -76,21 +73,22 @@ public class CategoryController {
         System.out.println(this.categoryComboBox.getSelectionModel().getSelectedItem());
         this.categoryModel.setCategory(this.categoryComboBox.getSelectionModel().getSelectedItem());
     }
-    public void categoryColorPickerButton(){
+
+    public void categoryColorPickerButton() {
         Color color = categoryColorPicker.getValue();
         System.out.println(color);
     }
 
     public void onActionEditCategoryButton() {
-    String newCategoryName = DialogsUtils.editDialog(this.categoryModel.getCategory().getName());   // efekt pracy okna jest zapisywany w Stringu jeśli zechcemy modyfikować ine elementy category niż tylko name to trzeba będzie to zmienić na klase Category
-    if (newCategoryName!=null){
-        this.categoryModel.getCategory().setName(newCategoryName);
-        try {
-            this.categoryModel.updateCategoryInDataBase();
-        } catch (ApplicationException e) {
-            DialogsUtils.errorDialog(e.getMessage());
+        String newCategoryName = DialogsUtils.editDialog(this.categoryModel.getCategory().getName());   // efekt pracy okna jest zapisywany w Stringu jeśli zechcemy modyfikować ine elementy category niż tylko name to trzeba będzie to zmienić na klase Category
+        if (newCategoryName != null) {
+            this.categoryModel.getCategory().setName(newCategoryName);
+            try {
+                this.categoryModel.updateCategoryInDataBase();
+            } catch (ApplicationException e) {
+                DialogsUtils.errorDialog(e.getMessage());
+            }
         }
-    }
     }
 }
 
