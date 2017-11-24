@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import pl.Time.Manager.database.dao.CategoryDao;
 import pl.Time.Manager.database.dbuitls.DbManager;
 import pl.Time.Manager.database.models.Category;
+import pl.Time.Manager.utils.converters.ConverterCategory;
 import pl.Time.Manager.utils.exceptions.ApplicationException;
 
 import java.util.List;
@@ -21,14 +22,16 @@ public class CategoryModel {
     public void init() throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
         List<Category> categories = categoryDao.queryForAll(Category.class);
-        this.categoryList.clear();
-        categories.forEach(c -> {
-            CategoryFx categoryFx = new CategoryFx();
-            categoryFx.setId(c.getId());
-            categoryFx.setName(c.getName());
-            this.categoryList.add(categoryFx);
-        });
+        initCategoryList(categories);
         DbManager.closeConnectionSource();
+    }
+
+
+    private void initCategoryList(List<Category> categories) {
+        this.categoryList.clear();
+        categories.forEach(c -> { CategoryFx categoryFx = ConverterCategory.categoryToCategoryFx(c);
+        this.categoryList.add(categoryFx);
+        });
     }
 
     public void deleteCategoryById() throws ApplicationException {
@@ -78,3 +81,4 @@ public class CategoryModel {
     }
 
 }
+
