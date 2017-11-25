@@ -12,12 +12,12 @@ import pl.Time.Manager.utils.exceptions.ApplicationException;
 
 import java.util.List;
 
-
 public class ProjectModel {
 
-
     private ObservableList<ProjectFx> projectList = FXCollections.observableArrayList();
-    private ObjectProperty<ProjectFx> project = new SimpleObjectProperty<>();
+    private ObjectProperty<ProjectFx> project = new SimpleObjectProperty<>(new ProjectFx());
+    private ObjectProperty<ProjectFx> projectEdit = new SimpleObjectProperty<>(new ProjectFx());
+
 
     public void init() throws ApplicationException {
         ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
@@ -25,6 +25,8 @@ public class ProjectModel {
         initProjectList(projects);
         DbManager.closeConnectionSource();
     }
+
+
 
     private void initProjectList(List<Project> projects) {
         this.projectList.clear();
@@ -35,23 +37,34 @@ public class ProjectModel {
 
     }
 
-    public void saveProjectInDataBase(String name, String descrpition, String category, String color) throws ApplicationException {
+    public void saveProjectEditInDataBase() throws ApplicationException {
+        saveOrUpdate(this.getProjectEdit());
+    }
+
+    public void saveProjectInDataBase() throws ApplicationException {
+        saveOrUpdate(this.getProject());
+    }
+
+    private void saveOrUpdate(ProjectFx projectFx) throws ApplicationException {
         ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
-        Project project = new Project();
-        project.setName(name);
-        project.setDescription(descrpition);
-        project.setCategory(category);
-        project.setColor(color);
+        Project project = ConverterProject.projectFxToProject(projectFx);
         projectDao.creatOrUpdate(project);
         DbManager.closeConnectionSource();
         init();
     }
+
 
     public void updateProjectInDataBase() throws ApplicationException {
         ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
         Project tempProject = projectDao.findById(Project.class, getProject().getId());
         tempProject.setName(getProject().getName());
         projectDao.creatOrUpdate(tempProject);
+        DbManager.closeConnectionSource();
+        init();
+    }
+    public void deleteProjectById() throws ApplicationException {
+        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+        projectDao.deleteById(Project.class, project.getValue().getId());
         DbManager.closeConnectionSource();
         init();
     }
@@ -77,10 +90,28 @@ public class ProjectModel {
     }
 
 
-    public void deleteProjectById() throws ApplicationException {
-        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
-        projectDao.deleteById(Project.class, project.getValue().getId());
-        DbManager.closeConnectionSource();
-        init();
+    public ProjectFx getProjectEdit() {
+        return projectEdit.get();
+    }
+
+    public ObjectProperty<ProjectFx> projectEditProperty() {
+        return projectEdit;
+    }
+
+    public void setProjectEdit(ProjectFx projectEdit) {
+        this.projectEdit.set(projectEdit);
     }
 }
+//
+//
+//    public void saveProjectInDataBase(String name, String descrpition, String category, String color) throws ApplicationException {
+//        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+//        Project project = new Project();
+//        project.setName(name);
+//        project.setDescription(descrpition);
+//        project.setCategory(category);
+//        project.setColor(color);
+//        projectDao.creatOrUpdate(project);
+//        DbManager.closeConnectionSource();
+//        init();
+//    }

@@ -9,6 +9,8 @@ public class ConverterCategory {
         CategoryFx categoryFx = new CategoryFx();
         categoryFx.setId(category.getId());
         categoryFx.setName(category.getName());
+        categoryFx.setDescription(category.getDescription());
+        categoryFx.setColor(category.getColor());
         return categoryFx;
     }
 

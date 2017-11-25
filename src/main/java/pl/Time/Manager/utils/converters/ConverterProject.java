@@ -14,4 +14,12 @@ public class ConverterProject {
         projectFx.setDescription(project.getDescription());
         return projectFx;
     }
+    public static Project projectFxToProject (ProjectFx projectFx){
+        Project project = new Project();
+        project.setName(projectFx.getName());
+        project.setDescription(projectFx.getDescription());
+        project.setCategory(projectFx.getCategory());
+        project.setColor(projectFx.getColor());
+        return project;
+    }
 }

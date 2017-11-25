@@ -80,6 +80,5 @@ public class CategoryModel {
     public void setCategory(CategoryFx category) {
         this.category.set(category);
     }
-
 }
 
