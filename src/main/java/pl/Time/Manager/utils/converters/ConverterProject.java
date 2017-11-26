@@ -17,6 +17,7 @@ public class ConverterProject {
     public static Project projectFxToProject (ProjectFx projectFx){
         Project project = new Project();
         project.setName(projectFx.getName());
+        project.setId(projectFx.getId());
         project.setDescription(projectFx.getDescription());
         project.setCategory(projectFx.getCategory());
         project.setColor(projectFx.getColor());

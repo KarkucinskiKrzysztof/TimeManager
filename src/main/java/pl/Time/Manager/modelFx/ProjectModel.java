@@ -102,16 +102,3 @@ public class ProjectModel {
         this.projectEdit.set(projectEdit);
     }
 }
-//
-//
-//    public void saveProjectInDataBase(String name, String descrpition, String category, String color) throws ApplicationException {
-//        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
-//        Project project = new Project();
-//        project.setName(name);
-//        project.setDescription(descrpition);
-//        project.setCategory(category);
-//        project.setColor(color);
-//        projectDao.creatOrUpdate(project);
-//        DbManager.closeConnectionSource();
-//        init();
-//    }
