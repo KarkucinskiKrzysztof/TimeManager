@@ -19,10 +19,9 @@ public class CategoryModel {
 
 
     public void init() throws ApplicationException {
-        CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
+        CategoryDao categoryDao = new CategoryDao();
         List<Category> categories = categoryDao.queryForAll(Category.class);
         initCategoryList(categories);
-        DbManager.closeConnectionSource();
     }
 
 
@@ -35,29 +34,27 @@ public class CategoryModel {
     }
 
     public void deleteCategoryById() throws ApplicationException {
-        CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
+        CategoryDao categoryDao = new CategoryDao();
         categoryDao.deleteById(Category.class, category.getValue().getId());
-        DbManager.closeConnectionSource();
+
         init();
     }
 
     public void saveCategoryInDataBase(String name, String desc, String color) throws ApplicationException {
-        CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
+        CategoryDao categoryDao = new CategoryDao();
         Category category = new Category();
         category.setName(name);
         category.setDescription(desc);
         category.setColor(color);
         categoryDao.creatOrUpdate(category);
-        DbManager.closeConnectionSource();
         init();
     }
 
     public void updateCategoryInDataBase() throws ApplicationException {
-        CategoryDao categoryDao = new CategoryDao(DbManager.getConnectionSource());
+        CategoryDao categoryDao = new CategoryDao();
         Category tempCategory = categoryDao.findById(Category.class, getCategory().getId());
         tempCategory.setName(getCategory().getName());
         categoryDao.creatOrUpdate(tempCategory);
-        DbManager.closeConnectionSource();
         init();
     }
 

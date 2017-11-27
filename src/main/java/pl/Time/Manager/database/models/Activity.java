@@ -31,6 +31,14 @@ public class Activity implements BaseModel{
     @DatabaseField(columnName = "ADDED_DATE")
     private Date addedDate;
 
+    public static String getProjectId() {
+        return PROJECT_ID;
+    }
+
+    public static String getCategoryId() {
+        return CATEGORY_ID;
+    }
+
     public int getId() {
         return id;
     }
@@ -54,16 +62,13 @@ public class Activity implements BaseModel{
     public void setCategory(Category category) {
         this.category = category;
     }
-    public Date getAddedDate() {
-        return addedDate;
-    }
-
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
-    }
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDuration() {
@@ -74,52 +79,12 @@ public class Activity implements BaseModel{
         this.duration = duration;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Date getAddedDate() {
+        return addedDate;
+    }
+
+    public void setAddedDate(Date addedDate) {
+        this.addedDate = addedDate;
     }
 }
-
-//    @DatabaseField(columnName = "NAME", canBeNull = false)
-//    private String name;
-
-//    @DatabaseField(columnName = "ADD_DATE")
-//    private Date addDate;
-
-//    @DatabaseField(columnName = "ISBN")
-//    private String isbn;
-
-//    @DatabaseField(columnName = "RATING", width = 1)
-//    private int rating;
-//    public String getDescription() {
-//        return name;
-//    }
-//
-//    public void setDescription(String name) {
-//        this.name = name;
-//    }
-
-//    public Date getAddDate() {
-//        return addDate;
-//    }
-//
-//    public void setAddDate(Date addDate) {
-//        this.addDate = addDate;
-//    }
-
-//    public String getIsbn() {
-//        return isbn;
-//    }
-//
-//    public void setIsbn(String isbn) {
-//        this.isbn = isbn;
-//    }
-
-//    public int getRating() {
-//        return rating;
-//    }
-//
-//    public void setRating(int rating) {
-//        this.rating = rating;
-//    }
-
 

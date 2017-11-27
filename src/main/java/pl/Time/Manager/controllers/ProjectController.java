@@ -28,7 +28,6 @@ public class ProjectController {
     private Button deleteProjectButton;
     @FXML
     private Button addProjectButton;
-
     @FXML
     private TableView<ProjectFx> projectTableView;
     @FXML
@@ -154,8 +153,6 @@ public class ProjectController {
     public void onEditCommitColor(TableColumn.CellEditEvent<ProjectFx, String> projectFxStringCellEditEvent) {
         this.projectModel.getProjectEdit().setColor(projectFxStringCellEditEvent.getNewValue());
         updateInDataBase();
-
-
     }
 
     private void updateInDataBase() {

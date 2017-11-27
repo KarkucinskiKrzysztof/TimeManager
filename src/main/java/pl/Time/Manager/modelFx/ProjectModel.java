@@ -20,10 +20,9 @@ public class ProjectModel {
 
 
     public void init() throws ApplicationException {
-        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+        ProjectDao projectDao = new ProjectDao();
         List<Project> projects = projectDao.queryForAll(Project.class);
         initProjectList(projects);
-        DbManager.closeConnectionSource();
     }
 
 
@@ -46,26 +45,23 @@ public class ProjectModel {
     }
 
     private void saveOrUpdate(ProjectFx projectFx) throws ApplicationException {
-        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+        ProjectDao projectDao = new ProjectDao();
         Project project = ConverterProject.projectFxToProject(projectFx);
         projectDao.creatOrUpdate(project);
-        DbManager.closeConnectionSource();
         init();
     }
 
 
     public void updateProjectInDataBase() throws ApplicationException {
-        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+        ProjectDao projectDao = new ProjectDao();
         Project tempProject = projectDao.findById(Project.class, getProject().getId());
         tempProject.setName(getProject().getName());
         projectDao.creatOrUpdate(tempProject);
-        DbManager.closeConnectionSource();
         init();
     }
     public void deleteProjectById() throws ApplicationException {
-        ProjectDao projectDao = new ProjectDao(DbManager.getConnectionSource());
+        ProjectDao projectDao = new ProjectDao();
         projectDao.deleteById(Project.class, project.getValue().getId());
-        DbManager.closeConnectionSource();
         init();
     }
 
