@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.Time.Manager.controllers.SearchController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="%filterCategoryLabel" />
+            <ComboBox fx:id="categoryFilterComboBox" onAction="#filterOnAction" prefWidth="150.0" />
+            <Button maxHeight="25.0" maxWidth="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearCategoryFilterOnAction" prefHeight="25.0" prefWidth="25.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label text="%filterProjectLabel" />
+            <ComboBox fx:id="projectFilterComboBox" onAction="#filterOnAction" prefWidth="150.0" />
+            <Button maxHeight="25.0" maxWidth="25.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearProjectFilterOnAction" prefHeight="25.0" prefWidth="25.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+      </HBox>
+      <TableView fx:id="activityTableView" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="categoryColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%categoryColumn" />
+            <TableColumn fx:id="projectColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%projectColumn" />
+            <TableColumn fx:id="durationColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%durationColumn" />
+            <TableColumn fx:id="descriptionColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%descriptionColumn" />
+            <TableColumn fx:id="dateColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%dateOfStartColumn" />
+            <TableColumn fx:id="timeColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%timeOfStartColumn" />
+         </columns>
+      </TableView>
+   </children>
+</VBox>

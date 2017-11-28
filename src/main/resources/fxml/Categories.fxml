@@ -27,9 +27,18 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="%addCategoryLabel" />
-            <Label text="%colorCategoryLabel" GridPane.rowIndex="2" />
-            <Label text="%descriptionCategoryLabel" GridPane.rowIndex="1" />
+            <Label text="%addCategoryLabel">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Label>
+            <Label text="%colorCategoryLabel" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Label>
+            <Label text="%descriptionCategoryLabel" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Label>
             <TextField fx:id="categoryTextField" GridPane.columnIndex="1" />
             <TextField fx:id="descriptionTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ColorPicker fx:id="categoryColorPicker" onAction="#categoryColorPickerButton" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -42,7 +51,10 @@
                <padding>
                   <Insets left="10.0" />
                </padding></ColorPicker>
-            <Label text="%choiceCategoryLabel" GridPane.rowIndex="4" />
+            <Label text="%choiceCategoryLabel" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Label>
             <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#addCategoryOnAction" prefWidth="60.0" text="%addButton" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />

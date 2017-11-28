@@ -31,24 +31,24 @@
         </rowConstraints>
          <children>
             <Label text="%choiceCategoryForActivityLabel">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </Label>
             <Label text="%choiceProjectForActivityLabel" GridPane.rowIndex="1">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </Label>
             <Label text="%dateLabel" GridPane.columnIndex="2">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </Label>
             <Label text="%timeLabel" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </Label>
             <ComboBox fx:id="choiceCategoryForActivityComboBox" onAction="#choiceCategoryForActivityComboBoxOnAction" prefWidth="190.0" GridPane.columnIndex="1" />
             <ComboBox fx:id="choiceProjectForActivityComboBox" onAction="#choiceProjectForActivityComboBoxOnAction" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -57,9 +57,9 @@
             <TextField fx:id="descriptionTextField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <TextField fx:id="timeTextField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label text="%descriptionLabel" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
             </Label>
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#addActivityOnAction" prefWidth="60.0" text="%addButton" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
@@ -67,18 +67,10 @@
                </GridPane.margin>
             </Button>
             <Label text="%durationLabel" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-            </Label>
-            <Label text="Label" GridPane.rowIndex="4" />
-            <ComboBox fx:id="oneComboBox" onAction="#filterOnAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="twoComboBox" onAction="#filterOnAction" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="50.0" />
                </GridPane.margin>
-            </ComboBox>
-            <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            </Label>
          </children>
          <opaqueInsets>
             <Insets />

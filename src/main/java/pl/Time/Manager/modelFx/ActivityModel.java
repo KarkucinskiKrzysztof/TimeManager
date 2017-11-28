@@ -16,6 +16,7 @@ import pl.Time.Manager.utils.converters.ConverterProject;
 import pl.Time.Manager.utils.exceptions.ApplicationException;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ActivityModel {
 
@@ -30,9 +31,24 @@ public class ActivityModel {
     private ObjectProperty<ProjectFx> projectFxFilter = new SimpleObjectProperty<>();
 
 
+
+    // sprawdzamy cza kategoria wybrana w comboboxie ma takie samo id jak kategoria aktywności
+    public Predicate<ActivityFx> predicateCategory(){
+        Predicate<ActivityFx> predicate = activityFx-> activityFx.getCategoryFx().getId() == getCategoryFxFilter().getId();
+        return predicate;
+    }
+    public Predicate<ActivityFx> predicateProject(){
+        Predicate<ActivityFx> predicate = activityFx-> activityFx.getProjectFx().getId() == getProjectFxFilter().getId();
+        return predicate;
+    }
+
+
+
     public void init() throws ApplicationException {
         initCategoryFxList();
         initProjectFxList();
+        initActivityFxList();
+
     }
 
     private void initProjectFxList() throws ApplicationException {
@@ -79,7 +95,7 @@ public class ActivityModel {
 
         ActivityDao activityDao = new ActivityDao();
         activityDao.creatOrUpdate(activity);
-
+        init();
     }
 
     public ActivityFx getActivityFxEdit() {

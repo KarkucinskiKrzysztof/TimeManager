@@ -32,19 +32,19 @@
          <children>
             <Label text="%addProjectLabel">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="50.0" />
                </GridPane.margin></Label>
             <Label text="%descriptionProjectLabel" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="50.0" />
                </GridPane.margin></Label>
             <Label text="%chooseCategoryForProjectLabel" GridPane.columnIndex="2">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="50.0" />
                </GridPane.margin></Label>
             <Label text="%colorProjectLabel" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="50.0" />
                </GridPane.margin></Label>
             <ComboBox fx:id="choiceProjectComboBox" onAction="#onActionComboBox" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ComboBox fx:id="choiceCategoryForProject" prefHeight="25.0" prefWidth="190.0" GridPane.columnIndex="3" />
@@ -64,7 +64,7 @@
             <Button fx:id="addProjectButton" mnemonicParsing="false" onAction="#onActionAddButton" prefWidth="60.0" text="%addButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="%choiceProjectLabel" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="50.0" />
                </GridPane.margin></Label>
          </children>
          <VBox.margin>

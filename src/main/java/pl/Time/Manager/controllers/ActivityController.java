@@ -26,10 +26,6 @@ public class ActivityController {
     @FXML
     private Button addButton;
     @FXML
-    private ComboBox twoComboBox;
-    @FXML
-    private ComboBox oneComboBox;
-    @FXML
     private TableView<ActivityFx> activityTableView;
     @FXML
     private TableColumn<ActivityFx, CategoryFx> categoryColumn;
@@ -43,7 +39,6 @@ public class ActivityController {
     private TableColumn<ActivityFx, LocalDate> dateColumn;
     @FXML
     private TableColumn<ActivityFx, String> timeColumn;
-
 
     private ActivityModel activityModel;
     private ProjectModel projectModel;
@@ -60,43 +55,26 @@ public class ActivityController {
         }
         bindings();
         bindingsTable();
-        bindingsFilter();
-
     }
 
     private void bindingsTable() {
-    this.activityTableView.setItems(this.activityModel.getActivityFxList());
-    this.categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryFxProperty());
-    this.projectColumn.setCellValueFactory(cellData->cellData.getValue().projectFxProperty());
-    this.durationColumn.setCellValueFactory(cellData->cellData.getValue().durationProperty());
-    this.dateColumn.setCellValueFactory(cellData->cellData.getValue().addDateProperty());
-    this.timeColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
-
-
+    activityTableView.setItems(this.activityModel.getActivityFxList());
+    categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryFxProperty());
+    projectColumn.setCellValueFactory(cellData->cellData.getValue().projectFxProperty());
+    durationColumn.setCellValueFactory(cellData->cellData.getValue().durationProperty());
+    dateColumn.setCellValueFactory(cellData->cellData.getValue().addDateProperty());
+    timeColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
+    descriptionColumn.setCellValueFactory((cellData->cellData.getValue().discriptionProperty()));
     }
 
-    private void bindingsFilter(){
-        // inicjowanie comboboxów do filtrowania
 
-        this.oneComboBox.setItems(activityModel.getCategoryFxList());
-        this.twoComboBox.setItems(activityModel.getProjectFxList());
-
-        // wybranie w comboboxie jakiejs opcji powoduje zapisanie jej w obiekcie categoryFxFilter lub projectFxFilter z modelu
-        this.activityModel.categoryFxFilterProperty().bind(this.oneComboBox.valueProperty());
-        this.activityModel.projectFxFilterProperty().bind(this.twoComboBox.valueProperty());
-
-
-
-
-    }
     private void bindings() {
         //inicjowanie comboboxów do tworzenia aktywności
         this.choiceCategoryForActivityComboBox.setItems(activityModel.getCategoryFxList());
         this.choiceProjectForActivityComboBox.setItems(activityModel.getProjectFxList());
 
         // comboBoxy
-
-        naszInt = new SimpleIntegerProperty();
+        this.naszInt = new SimpleIntegerProperty();
         Bindings.bindBidirectional(durationTextField.textProperty(), naszInt, new NumberStringConverter());
 
         this.activityModel.getActivityFx().categoryFxProperty().bind(this.choiceCategoryForActivityComboBox.valueProperty());
@@ -106,6 +84,12 @@ public class ActivityController {
         this.activityModel.getActivityFx().timeProperty().bind(this.timeTextField.textProperty());
         this.activityModel.getActivityFx().discriptionProperty().bind(this.descriptionTextField.textProperty());
 
+        this.addButton.disableProperty().bind(timeTextField.textProperty().isEmpty()
+                .or(descriptionTextField.textProperty().isEmpty())
+                .or(choiceCategoryForActivityComboBox.valueProperty().isNull())
+                .or(choiceProjectForActivityComboBox.valueProperty().isNull())
+                .or(datePicker.valueProperty().isNull())
+                .or(durationTextField.textProperty().isEmpty()));
 
 
     }
@@ -119,23 +103,13 @@ public class ActivityController {
         }
         //System.out.println(this.activityModel.getActivityFx().toString());
     }
-
     @FXML
     void choiceCategoryForActivityComboBoxOnAction() {
-
     }
-
     @FXML
     void choiceProjectForActivityComboBoxOnAction() {
-
     }
-
     @FXML
     void datePickerOnAction() {
-
-    }
-    @FXML
-    void filterOnAction() {
-        // spr System.out.println(this.activityModel.categoryFxFilterProperty().get());
     }
 }
