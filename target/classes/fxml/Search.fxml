@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.Time.Manager.controllers.SearchController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="3.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.Time.Manager.controllers.SearchController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="800.0" spacing="20.0">
          <children>
             <Label text="%filterCategoryLabel" />
             <ComboBox fx:id="categoryFilterComboBox" onAction="#filterOnAction" prefWidth="150.0" />
@@ -43,7 +42,7 @@
             <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>
       </HBox>
-      <TableView fx:id="activityTableView" tableMenuButtonVisible="true">
+      <TableView fx:id="activityTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="550.0" prefWidth="800.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn fx:id="categoryColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%categoryColumn" />
             <TableColumn fx:id="projectColumn" maxWidth="400.0" minWidth="80.0" prefWidth="132.0" text="%projectColumn" />

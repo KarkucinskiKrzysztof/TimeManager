@@ -80,6 +80,7 @@ public class SearchController {
     @FXML
     void filterOnAction() {
         // spr System.out.println(this.activityModel.categoryFxFilterProperty().get());
+        this.activityModel.filterActivityList();
     }
     @FXML
     void clearCategoryFilterOnAction() {

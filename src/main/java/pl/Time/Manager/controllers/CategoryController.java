@@ -3,10 +3,7 @@ package pl.Time.Manager.controllers;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import pl.Time.Manager.modelFx.CategoryFx;
 import pl.Time.Manager.modelFx.CategoryModel;
@@ -31,6 +28,20 @@ public class CategoryController {
     @FXML
     private ComboBox<CategoryFx> categoryComboBox;
 
+    @FXML
+    private TableColumn<CategoryFx, String> nameColumn;
+
+    @FXML
+    private TableColumn<CategoryFx, String> colorColumn;
+
+    @FXML
+    private TableColumn<CategoryFx, String> descriptionColumn;
+
+    @FXML
+    private TableColumn<CategoryFx, Number> totalTimeColumn;
+    @FXML
+    private TableView<CategoryFx> categoryTableView;
+
     private CategoryModel categoryModel;
 
     @FXML
@@ -43,12 +54,22 @@ public class CategoryController {
         }
         this.categoryComboBox.setItems(this.categoryModel.getCategoryList());
         initBindings();
+        initTableBindings();
+
+    }
+
+    private void initTableBindings() {
+        this.categoryTableView.setItems(this.categoryModel.getCategoryList());
+        this.nameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
+        this.colorColumn.setCellValueFactory(cellData->cellData.getValue().colorProperty());
+        this.descriptionColumn.setCellValueFactory((cellData->cellData.getValue().descriptionProperty())); // gdzies jest discriptionProperty
+        // this.totalTimeColumn.setCellValueFactory(cellData->cellData.getValue().xxx);
     }
 
     private void initBindings() {
         this.addCategoryButton.disableProperty().bind(categoryTextField.textProperty().isEmpty().or(descriptionTextField.textProperty().isEmpty()));
         this.deleteCategoryButton.disableProperty().bind(this.categoryModel.categoryProperty().isNull());  // aktywacja przycisku delete dopiero po wybraniu comboBoxa
-        this.editCategoryButton.disableProperty().bind(this.categoryModel.categoryProperty().isNull());        // aktywacja przycisku edit dopiero po wybraniu comboBoxa
+        this.editCategoryButton.disableProperty().bind(this.categoryModel.categoryProperty().isNull());    // aktywacja przycisku edit dopiero po wybraniu comboBoxa
     }
 
     public void addCategoryOnAction() {

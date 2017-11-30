@@ -15,8 +15,10 @@ import pl.Time.Manager.utils.converters.ConverterCategory;
 import pl.Time.Manager.utils.converters.ConverterProject;
 import pl.Time.Manager.utils.exceptions.ApplicationException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ActivityModel {
 
@@ -26,36 +28,57 @@ public class ActivityModel {
     private ObservableList<ProjectFx> projectFxList = FXCollections.observableArrayList();
     private ObservableList<ActivityFx> activityFxList = FXCollections.observableArrayList();
 
-
     private ObjectProperty<CategoryFx> categoryFxFilter = new SimpleObjectProperty<>();
     private ObjectProperty<ProjectFx> projectFxFilter = new SimpleObjectProperty<>();
 
+    private List<ActivityFx> activityFxFilterList = new ArrayList<>();
 
 
     // sprawdzamy cza kategoria wybrana w comboboxie ma takie samo id jak kategoria aktywności
-    public Predicate<ActivityFx> predicateCategory(){
-        Predicate<ActivityFx> predicate = activityFx-> activityFx.getCategoryFx().getId() == getCategoryFxFilter().getId();
-        return predicate;
-    }
-    public Predicate<ActivityFx> predicateProject(){
-        Predicate<ActivityFx> predicate = activityFx-> activityFx.getProjectFx().getId() == getProjectFxFilter().getId();
+    public Predicate<ActivityFx> predicateCategory() {
+        Predicate<ActivityFx> predicate = activityFx -> activityFx.getCategoryFx().getId() == getCategoryFxFilter().getId();
         return predicate;
     }
 
+    public Predicate<ActivityFx> predicateProject() {
+        Predicate<ActivityFx> predicate = activityFx -> activityFx.getProjectFx().getId() == getProjectFxFilter().getId();
+        return predicate;
+    }
+
+    public void filterPredicate(Predicate<ActivityFx> predicate) {
+        List<ActivityFx> newList = activityFxFilterList.stream().filter(predicate).collect(Collectors.toList());
+        this.activityFxList.setAll(newList);
+    }
+
+    public void filterActivityList() {
+        if (getCategoryFxFilter() != null && getProjectFxFilter() != null) {
+            filterPredicate(predicateCategory().and(predicateProject()));
+        } else if (getCategoryFxFilter() != null) {
+            filterPredicate(predicateCategory());
+        } else if (getProjectFxFilter() != null) {
+            filterPredicate((predicateProject()));
+        } else {
+            this.activityFxList.setAll(this.activityFxFilterList);
+        }
+
+
+    }
 
 
     public void init() throws ApplicationException {
+
         initCategoryFxList();
         initProjectFxList();
         initActivityFxList();
 
     }
 
+
     private void initProjectFxList() throws ApplicationException {
         ProjectDao projectDao = new ProjectDao();
         List<Project> projectList = projectDao.queryForAll(Project.class);
         projectFxList.clear();
-        projectList.forEach(c->{
+        projectList.forEach(c -> {
             ProjectFx projectFx = ConverterProject.projectToProjectFx(c);
             projectFxList.add(projectFx);
         });
@@ -65,19 +88,22 @@ public class ActivityModel {
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categoryList = categoryDao.queryForAll(Category.class);
         categoryFxList.clear();
-        categoryList.forEach(c->{
+        categoryList.forEach(c -> {
             CategoryFx categoryFx = ConverterCategory.categoryToCategoryFx(c);
             categoryFxList.add(categoryFx);
         });
     }
+
     public void initActivityFxList() throws ApplicationException {
         ActivityDao activityDao = new ActivityDao();
-        List<Activity> categoryList = activityDao.queryForAll(Activity.class);
+        List<Activity> activityList = activityDao.queryForAll(Activity.class);
+        activityFxFilterList.clear();
         activityFxList.clear();
-        categoryList.forEach(c->{
+        activityList.forEach(c -> {
             ActivityFx activityFx = ConverterActivity.activityToActivityFx(c);
-            this.activityFxList.add(activityFx);
+            this.activityFxFilterList.add(activityFx);
         });
+        this.activityFxList.addAll(this.activityFxFilterList);
     }
 
 
@@ -145,6 +171,7 @@ public class ActivityModel {
     public void setProjectFxList(ObservableList<ProjectFx> projectFxList) {
         this.projectFxList = projectFxList;
     }
+
     public CategoryFx getCategoryFxFilter() {
         return categoryFxFilter.get();
     }

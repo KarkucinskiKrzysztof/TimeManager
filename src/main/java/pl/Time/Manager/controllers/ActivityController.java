@@ -58,13 +58,13 @@ public class ActivityController {
     }
 
     private void bindingsTable() {
-    activityTableView.setItems(this.activityModel.getActivityFxList());
-    categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryFxProperty());
-    projectColumn.setCellValueFactory(cellData->cellData.getValue().projectFxProperty());
-    durationColumn.setCellValueFactory(cellData->cellData.getValue().durationProperty());
-    dateColumn.setCellValueFactory(cellData->cellData.getValue().addDateProperty());
-    timeColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
-    descriptionColumn.setCellValueFactory((cellData->cellData.getValue().discriptionProperty()));
+        this.activityTableView.setItems(this.activityModel.getActivityFxList());
+        this.categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryFxProperty());
+        this.projectColumn.setCellValueFactory(cellData->cellData.getValue().projectFxProperty());
+        this.durationColumn.setCellValueFactory(cellData->cellData.getValue().durationProperty());
+        this.dateColumn.setCellValueFactory(cellData->cellData.getValue().addDateProperty());
+        this.timeColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
+        this.descriptionColumn.setCellValueFactory((cellData->cellData.getValue().discriptionProperty()));
     }
 
 
