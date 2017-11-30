@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47eea274-3fa8-4c12-89f5-28dabeb8a6e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraryDB.mv.db" afterPath="$PROJECT_DIR$/libraryDB.mv.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/CategoryController.class" afterPath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/CategoryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/SearchController.class" afterPath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/SearchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/TimeController.class" afterPath="$PROJECT_DIR$/target/classes/pl/Time/Manager/controllers/TimeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/Time/Manager/modelFx/ActivityModel.class" afterPath="$PROJECT_DIR$/target/classes/pl/Time/Manager/modelFx/ActivityModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/ActivityController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/ActivityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/CategoryController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/CategoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/PomodoroController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/PomodoroController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/SearchController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/SearchController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/TimeController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/controllers/TimeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/modelFx/ActivityModel.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/modelFx/ActivityModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/utils/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/pl/Time/Manager/utils/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/bundles/messages.properties" afterPath="$PROJECT_DIR$/src/main/resources/bundles/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/bundles/messages_pl.properties" afterPath="$PROJECT_DIR$/src/main/resources/bundles/messages_pl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Categories.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Categories.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Pomodoro.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Pomodoro.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Search.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Search.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Statistic.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Statistic.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/Timer.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Timer.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bundles/messages.properties" afterPath="$PROJECT_DIR$/target/classes/bundles/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bundles/messages_pl.properties" afterPath="$PROJECT_DIR$/target/classes/bundles/messages_pl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Categories.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Categories.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Search.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Search.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/Timer.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/Timer.fxml" />
-    </list>
+    <list default="true" id="47eea274-3fa8-4c12-89f5-28dabeb8a6e6" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -711,12 +685,12 @@
       <workItem from="1511943942521" duration="286000" />
       <workItem from="1511944275130" duration="685000" />
       <workItem from="1511953224399" duration="6388000" />
-      <workItem from="1512038949089" duration="3985000" />
+      <workItem from="1512038949089" duration="4037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198128000" />
+    <option name="totallyTimeSpent" value="198180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
