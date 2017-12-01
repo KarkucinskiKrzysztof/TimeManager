@@ -93,7 +93,7 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="190.0" GridPane.rowIndex="3">
+            <TextField fx:id="desctiptionTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="190.0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="130.0" />
                </GridPane.margin>
