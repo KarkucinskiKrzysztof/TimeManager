@@ -14,7 +14,7 @@ public class Category implements BaseModel {
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField(columnName = "NAME" , canBeNull = false ,unique = true)
+    @DatabaseField(columnName = "NAME", canBeNull = false, unique = true)
     private String name;
 
     @DatabaseField(columnName = "DESCRIPTION")
@@ -46,7 +46,9 @@ public class Category implements BaseModel {
         return description;
     }
 
-    public String getColor() { return color; }
+    public String getColor() {
+        return color;
+    }
 
     public void setColor(String color) {
         this.color = color;

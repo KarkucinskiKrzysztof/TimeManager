@@ -12,43 +12,30 @@ public class PomodoroController {
 
     @FXML
     private Label dynamicTimeDisplayLabel;
-
     @FXML
     private Button startButton;
-
     @FXML
     private ComboBox<?> categoryComboBox;
-
     @FXML
     private ComboBox<?> projectComboBox;
-
     @FXML
     private Button cancelButton;
-
     @FXML
     private TextField descriptionTextField;
-
     @FXML
     private ComboBox<?> durationWorkComboBox;
-
     @FXML
     private ComboBox<?> durationBreakComboBox;
-
     @FXML
     public void initialize() {
-
 
     }
 
     @FXML
     void cancelButtonOnAction(ActionEvent event) {
-
     }
 
     @FXML
     void startButtonOnAction(ActionEvent event) {
-
     }
-
-
 }

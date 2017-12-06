@@ -60,17 +60,13 @@ public class ActivityModel {
         } else {
             this.activityFxList.setAll(this.activityFxFilterList);
         }
-
-
     }
 
 
     public void init() throws ApplicationException {
-
         initCategoryFxList();
         initProjectFxList();
         initActivityFxList();
-
     }
 
 

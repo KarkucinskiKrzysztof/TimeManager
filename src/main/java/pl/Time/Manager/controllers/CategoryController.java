@@ -1,7 +1,6 @@
 package pl.Time.Manager.controllers;
 
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
@@ -27,16 +26,12 @@ public class CategoryController {
     private ColorPicker categoryColorPicker;
     @FXML
     private ComboBox<CategoryFx> categoryComboBox;
-
     @FXML
     private TableColumn<CategoryFx, String> nameColumn;
-
     @FXML
     private TableColumn<CategoryFx, String> colorColumn;
-
     @FXML
     private TableColumn<CategoryFx, String> descriptionColumn;
-
     @FXML
     private TableColumn<CategoryFx, Number> totalTimeColumn;
     @FXML
@@ -60,9 +55,9 @@ public class CategoryController {
 
     private void initTableBindings() {
         this.categoryTableView.setItems(this.categoryModel.getCategoryList());
-        this.nameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
-        this.colorColumn.setCellValueFactory(cellData->cellData.getValue().colorProperty());
-        this.descriptionColumn.setCellValueFactory((cellData->cellData.getValue().descriptionProperty())); // gdzies jest discriptionProperty
+        this.nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        this.colorColumn.setCellValueFactory(cellData -> cellData.getValue().colorProperty());
+        this.descriptionColumn.setCellValueFactory((cellData -> cellData.getValue().descriptionProperty())); // gdzies jest discriptionProperty
         // this.totalTimeColumn.setCellValueFactory(cellData->cellData.getValue().xxx);
     }
 

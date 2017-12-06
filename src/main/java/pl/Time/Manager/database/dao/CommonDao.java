@@ -34,8 +34,7 @@ public abstract class CommonDao {
 
             LOGGER.warn(e.getCause().getMessage());  // łapiemy dokładny wyjątek
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.create.update"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -47,8 +46,7 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.refresh"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -60,8 +58,7 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.delete"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -73,11 +70,11 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.delete"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
+
     public <T extends BaseModel, I> T findById(Class<T> cls, Integer id) throws ApplicationException {
         try {
             Dao<T, I> dao = getDao(cls);
@@ -85,8 +82,7 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.not.found"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -98,8 +94,7 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.not.found.all"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -111,8 +106,7 @@ public abstract class CommonDao {
         } catch (SQLException e) {
             LOGGER.warn(e.getCause().getMessage());
             throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.get.dao"));
-        }
-        finally {
+        } finally {
             this.closeDbConnecton();
         }
     }
@@ -121,6 +115,7 @@ public abstract class CommonDao {
         Dao<T, I> dao = getDao(cls);
         return dao.queryBuilder();
     }
+
     private void closeDbConnecton() throws ApplicationException {
         try {
             this.connectionSource.close();

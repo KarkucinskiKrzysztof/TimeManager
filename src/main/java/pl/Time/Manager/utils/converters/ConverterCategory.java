@@ -13,5 +13,4 @@ public class ConverterCategory {
         categoryFx.setColor(category.getColor());
         return categoryFx;
     }
-
  }

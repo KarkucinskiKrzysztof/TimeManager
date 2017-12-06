@@ -1,11 +1,9 @@
 package pl.Time.Manager.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
 public class TopMenuButtonsController {
-
 
     public static final String CATEGORIES_FXML = "/fxml/Categories.fxml";
     public static final String POMODORO_FXML = "/fxml/Pomodoro.fxml";
@@ -56,7 +54,6 @@ public class TopMenuButtonsController {
     void openSearch(){
         mainController.setCenter(SEARCH_FXML);
     }
-
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;

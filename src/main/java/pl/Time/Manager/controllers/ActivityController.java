@@ -8,6 +8,7 @@ import javafx.util.converter.NumberStringConverter;
 import pl.Time.Manager.modelFx.*;
 import pl.Time.Manager.utils.DialogsUtils;
 import pl.Time.Manager.utils.exceptions.ApplicationException;
+
 import java.time.LocalDate;
 
 public class ActivityController {
@@ -44,8 +45,9 @@ public class ActivityController {
     private ProjectModel projectModel;
     private CategoryModel categoryModel;
     private SimpleIntegerProperty naszInt;
+
     @FXML
-    public void initialize(){
+    public void initialize() {
         activityModel = new ActivityModel();
         try {
             this.activityModel.init();
@@ -59,12 +61,12 @@ public class ActivityController {
 
     private void bindingsTable() {
         this.activityTableView.setItems(this.activityModel.getActivityFxList());
-        this.categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryFxProperty());
-        this.projectColumn.setCellValueFactory(cellData->cellData.getValue().projectFxProperty());
-        this.durationColumn.setCellValueFactory(cellData->cellData.getValue().durationProperty());
-        this.dateColumn.setCellValueFactory(cellData->cellData.getValue().addDateProperty());
-        this.timeColumn.setCellValueFactory(cellData->cellData.getValue().timeProperty());
-        this.descriptionColumn.setCellValueFactory((cellData->cellData.getValue().discriptionProperty()));
+        this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().categoryFxProperty());
+        this.projectColumn.setCellValueFactory(cellData -> cellData.getValue().projectFxProperty());
+        this.durationColumn.setCellValueFactory(cellData -> cellData.getValue().durationProperty());
+        this.dateColumn.setCellValueFactory(cellData -> cellData.getValue().addDateProperty());
+        this.timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
+        this.descriptionColumn.setCellValueFactory((cellData -> cellData.getValue().discriptionProperty()));
     }
 
 
@@ -103,12 +105,15 @@ public class ActivityController {
         }
         //System.out.println(this.activityModel.getActivityFx().toString());
     }
+
     @FXML
     void choiceCategoryForActivityComboBoxOnAction() {
     }
+
     @FXML
     void choiceProjectForActivityComboBoxOnAction() {
     }
+
     @FXML
     void datePickerOnAction() {
     }

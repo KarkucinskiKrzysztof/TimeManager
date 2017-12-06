@@ -72,9 +72,9 @@ public class ProjectController {
     private void bindingsTableView() {
         // Tabela
         this.projectTableView.setItems(projectModel.getProjectList());
-        this.nameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
-        this.categoryColumn.setCellValueFactory(cellData->cellData.getValue().categoryProperty());
-        this.colorColumn.setCellValueFactory(cellData->cellData.getValue().colorProperty());
+        this.nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
+        this.colorColumn.setCellValueFactory(cellData -> cellData.getValue().colorProperty());
         // this.totalTimeColumn.setCellValueFactory(cellData->cellData.getValue().xxxx);
 
         // ustawienie możliwości edytowanie komórek
@@ -144,7 +144,7 @@ public class ProjectController {
         updateInDataBase();
     }
 
-    public void onEditCommitCategory(TableColumn.CellEditEvent<ProjectFx, String> projectFxStringCellEditEvent)  {
+    public void onEditCommitCategory(TableColumn.CellEditEvent<ProjectFx, String> projectFxStringCellEditEvent) {
         this.projectModel.getProjectEdit().setCategory(projectFxStringCellEditEvent.getNewValue());
         updateInDataBase();
     }

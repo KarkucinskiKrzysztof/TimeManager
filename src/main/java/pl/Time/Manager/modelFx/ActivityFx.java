@@ -4,7 +4,6 @@ import javafx.beans.property.*;
 import java.time.LocalDate;
 
 
-
 public class ActivityFx {
     private IntegerProperty id = new SimpleIntegerProperty();
     private ObjectProperty<ProjectFx> projectFx = new SimpleObjectProperty<>();

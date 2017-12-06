@@ -42,10 +42,8 @@ public class SearchController {
         } catch (ApplicationException e) {
             DialogsUtils.errorDialog(e.getMessage());
         }
-        bindings();
         bindingsTable();
         bindingsFilter();
-
     }
 
     private void bindingsTable() {
@@ -67,14 +65,6 @@ public class SearchController {
         // wybranie w comboboxie jakiejs opcji powoduje zapisanie jej w obiekcie categoryFxFilter lub projectFxFilter z modelu
         this.activityModel.categoryFxFilterProperty().bind(this.categoryFilterComboBox.valueProperty());
         this.activityModel.projectFxFilterProperty().bind(this.projectFilterComboBox.valueProperty());
-
-
-
-
-    }
-    private void bindings() {
-
-
     }
 
     @FXML

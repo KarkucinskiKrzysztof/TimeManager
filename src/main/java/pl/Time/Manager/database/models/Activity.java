@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import java.util.Date;
 
 @DatabaseTable(tableName = "ACTIVITY")
-public class Activity implements BaseModel{
+public class Activity implements BaseModel {
 
     public static final String PROJECT_ID = "PROJECT_ID";
     public static final String CATEGORY_ID = "CATEGORY_ID";
