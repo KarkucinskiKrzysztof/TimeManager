@@ -36,7 +36,6 @@ public class CategoryModel {
     public void deleteCategoryById() throws ApplicationException {
         CategoryDao categoryDao = new CategoryDao();
         categoryDao.deleteById(Category.class, category.getValue().getId());
-
         init();
     }
 

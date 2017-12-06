@@ -20,19 +20,16 @@ public class TopMenuButtonsController {
     @FXML
     void openActivity() {
         mainController.setCenter(ACTIVITY_FXML);
-        System.out.println("Activity");
     }
 
     @FXML
     void openCategories() {
         mainController.setCenter(CATEGORIES_FXML);
-        System.out.println("Categories");
     }
 
     @FXML
     void openPomodoro() {
         mainController.setCenter(POMODORO_FXML);
-        System.out.println("Pomodoro");
     }
 
     @FXML

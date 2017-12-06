@@ -34,7 +34,7 @@ public class ActivityModel {
     private List<ActivityFx> activityFxFilterList = new ArrayList<>();
 
 
-    // sprawdzamy cza kategoria wybrana w comboboxie ma takie samo id jak kategoria aktywności
+
     public Predicate<ActivityFx> predicateCategory() {
         Predicate<ActivityFx> predicate = activityFx -> activityFx.getCategoryFx().getId() == getCategoryFxFilter().getId();
         return predicate;

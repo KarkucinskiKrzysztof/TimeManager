@@ -28,7 +28,6 @@ public class PomodoroController {
     private ComboBox<?> durationBreakComboBox;
     @FXML
     public void initialize() {
-
     }
 
     @FXML

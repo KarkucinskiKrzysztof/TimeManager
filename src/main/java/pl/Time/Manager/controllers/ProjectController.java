@@ -58,11 +58,11 @@ public class ProjectController {
     }
 
     private void bindings() {
-        //bindowanie choiceBoxów
+
         this.choiceCategoryForProject.setItems(this.categoryModel.getCategoryList());
         this.choiceProjectComboBox.setItems(this.projectModel.getProjectList());
 
-        // bindowanie pól projectModel z wartościami wpisywanymi w pola i comboboxa przez usera
+        // pola
         this.projectModel.projectProperty().get().nameProperty().bind(this.nameTextBox.textProperty());
         this.projectModel.projectProperty().get().descriptionProperty().bind(this.descriptionTextBox.textProperty());
         this.projectModel.projectProperty().get().categoryProperty().bind(this.choiceCategoryForProject.valueProperty().asString());
@@ -70,26 +70,26 @@ public class ProjectController {
     }
 
     private void bindingsTableView() {
-        // Tabela
+
         this.projectTableView.setItems(projectModel.getProjectList());
         this.nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         this.categoryColumn.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
         this.colorColumn.setCellValueFactory(cellData -> cellData.getValue().colorProperty());
-        // this.totalTimeColumn.setCellValueFactory(cellData->cellData.getValue().xxxx);
+        // this.totalTimeColumn.setCellValueFactory(cellData->cellData.getValue().xxxx);    // dodać wartości
 
-        // ustawienie możliwości edytowanie komórek
+        // edit
         this.nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.categoryColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         this.colorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        // po kliknięciu na wiersz w tabeli jest on przypisywany do ObjectProperty<ProjectFx> projectEdit = new SimpleObjectProperty<>(); z ProjectModel
+        // select
         this.projectTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             this.projectModel.setProjectEdit(newValue);
         });
     }
 
     private void bindingsButtons() {
-        // bindowanie aktywności przycisków
+
         this.addProjectButton.disableProperty().bind(descriptionTextBox.textProperty().isEmpty()
                 .or(nameTextBox.textProperty().isEmpty())
                 .or(choiceCategoryForProject.valueProperty().isNull())

@@ -26,11 +26,10 @@ public class MainController {
     @FXML
     private BorderPane borderPane;
     @FXML
-    private TopMenuButtonsController topMenuButtonsController;  // wstrzykniecie kontrolera pomimo iż w BorderPaneMain.fxml nazwa to topMenuButtons to trzeba ją zmieniać na topMenuButtonsController
-
+    private TopMenuButtonsController topMenuButtonsController;
     @FXML
     private void initialize() {
-        // przekazuje całą referencje do TopMenuButtons
+        // przekazuje  referencje do TopMenuButtons
         topMenuButtonsController.setMainController(this);
     }
 
@@ -42,11 +41,10 @@ public class MainController {
         DialogsUtils.dialogAboutApplication();
     }
 
-    public void alwaysOnTop(ActionEvent actionEvent) {      //12:30  #28
+    public void alwaysOnTop(ActionEvent actionEvent) {
         Stage stage = (Stage) borderPane.getScene().getWindow();
         boolean value = ((CheckMenuItem) actionEvent.getSource()).selectedProperty().get();
         stage.setAlwaysOnTop(value);
-
     }
 
     public void setModena() {

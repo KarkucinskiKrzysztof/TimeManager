@@ -30,8 +30,7 @@ public class SearchController {
 
 
     private ActivityModel activityModel;
-    private ProjectModel projectModel;
-    private CategoryModel categoryModel;
+
 
     @FXML
     public void initialize(){
@@ -57,12 +56,11 @@ public class SearchController {
     }
 
     private void bindingsFilter(){
-        // inicjowanie comboboxów do filtrowania
 
         this.categoryFilterComboBox.setItems(activityModel.getCategoryFxList());
         this.projectFilterComboBox.setItems(activityModel.getProjectFxList());
 
-        // wybranie w comboboxie jakiejs opcji powoduje zapisanie jej w obiekcie categoryFxFilter lub projectFxFilter z modelu
+
         this.activityModel.categoryFxFilterProperty().bind(this.categoryFilterComboBox.valueProperty());
         this.activityModel.projectFxFilterProperty().bind(this.projectFilterComboBox.valueProperty());
     }

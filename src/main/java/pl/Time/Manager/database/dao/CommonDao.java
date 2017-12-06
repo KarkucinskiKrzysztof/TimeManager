@@ -26,6 +26,7 @@ public abstract class CommonDao {
         this.connectionSource = DbManager.getConnectionSource();
     }
 
+
     public <T extends BaseModel, I> void creatOrUpdate(BaseModel baseModel) throws ApplicationException {
         Dao<T, I> dao = getDao((Class<T>) baseModel.getClass());
         try {
@@ -39,29 +40,6 @@ public abstract class CommonDao {
         }
     }
 
-    public <T extends BaseModel, I> void refresh(BaseModel baseModel) throws ApplicationException {
-        try {
-            Dao<T, I> dao = getDao((Class<T>) baseModel.getClass());
-            dao.refresh((T) baseModel);
-        } catch (SQLException e) {
-            LOGGER.warn(e.getCause().getMessage());
-            throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.refresh"));
-        } finally {
-            this.closeDbConnecton();
-        }
-    }
-
-    public <T extends BaseModel, I> void delete(BaseModel baseModel) throws ApplicationException {
-        try {
-            Dao<T, I> dao = getDao((Class<T>) baseModel.getClass());
-            dao.delete((T) baseModel);
-        } catch (SQLException e) {
-            LOGGER.warn(e.getCause().getMessage());
-            throw new ApplicationException(FxmlUtils.getResourceBundle().getString("error.delete"));
-        } finally {
-            this.closeDbConnecton();
-        }
-    }
 
     public <T extends BaseModel, I> void deleteById(Class<T> cls, Integer id) throws ApplicationException {
         try {
@@ -111,10 +89,6 @@ public abstract class CommonDao {
         }
     }
 
-    public <T extends BaseModel, I> QueryBuilder<T, I> getQueryBuilder(Class<T> cls) throws ApplicationException {
-        Dao<T, I> dao = getDao(cls);
-        return dao.queryBuilder();
-    }
 
     private void closeDbConnecton() throws ApplicationException {
         try {
